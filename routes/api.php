@@ -7,6 +7,7 @@ use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\KhaltiPaymentController;
 
 // Route::get('/user', function (Request $request) {
 //     return $request->user();
@@ -55,3 +56,7 @@ Route::get('getCategories', [CategoryController::class, 'getCategories']);
 Route::get('users',[ManagementController::class, 'index']);
 Route::put('users/{id}',[ManagementController::class, 'update']);
 Route::get('users/search',[ManagementController::class, 'usersearch']);
+
+
+Route::post('/khalti/initiate', [KhaltiPaymentController::class, 'initiatePayment'])->name('khalti.payment');
+Route::post('/khalti/callback', [KhaltiPaymentController::class, 'paymentCallback'])->name('khalti.callback');
