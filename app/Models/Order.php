@@ -28,7 +28,7 @@ class Order extends Model
 
     public function payment(): HasOne
     {
-        return $this->hasOne(Khalti::class);
+        return $this->hasOne(Payment::class);
     }
 
 }
